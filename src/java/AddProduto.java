@@ -5,7 +5,6 @@
  */
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +13,7 @@ import modelos.Produto;
 
 /**
  *
- * @author gutol
+ * @author Paulista
  */
 public class AddProduto extends HttpServlet {
 
@@ -22,22 +21,21 @@ public class AddProduto extends HttpServlet {
     public void doPost( HttpServletRequest request,
                         HttpServletResponse response
             )throws ServletException, IOException{
-        
+
         String descricao = request.getParameter("descricao");
-        
-        float preco = Float.parseFloat(
-                request.getParameter("preco")
-        );
-        
+        float preco = Float.parseFloat(request.getParameter("preco"));
+        int qtd = Integer.parseInt(request.getParameter("qtd"));
+
         Produto p = new Produto();
         p.setDescricao(descricao);
         p.setPreco(preco);
-        
+        p.setQtd(qtd);
+
         Produto.getLista().add(p);
-        
+
         response.sendRedirect("index.jsp");
-        
+
     }
-    
-    
+
+
 }

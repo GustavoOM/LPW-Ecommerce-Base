@@ -14,13 +14,14 @@ import java.util.ArrayList;
 public class Produto {
     private String descricao;
     private float preco;
+    private int qtd;
     private boolean oferta;
     private static ArrayList<Produto> lista = new ArrayList();
-    
+
     public String getDescricao(){
         return this.descricao;
     }
-    
+
     public void setDescricao(String descricao){
         this.descricao = descricao;
     }
@@ -31,6 +32,14 @@ public class Produto {
 
     public void setPreco(float preco) {
         this.preco = preco;
+    }
+
+    public int getQtd(){
+       return qtd;
+    }
+
+    public void setQtd(int qtd){
+       this.qtd = qtd;
     }
 
     public static ArrayList<Produto> getLista() {
@@ -48,6 +57,6 @@ public class Produto {
     public void setOferta(boolean oferta) {
         this.oferta = oferta;
     }
-        
-    
+
+
 }
