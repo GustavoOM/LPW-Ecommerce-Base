@@ -12,13 +12,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Minha Loja</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link href="css/paulista.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+
 
         <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="index.jsp">Minha Loja</a>
+                <a class="navbar-brand" href="index.jsp"><img id="nav" src="logoBranco.png"></a>
             </div>
             <ul class="nav navbar-nav">
               <li><a href="index.jsp">Ofertas</a></li>
@@ -35,29 +37,56 @@
           </div>
 
         </nav>
+        <div class="container">
 
-        <h1>Hello World!</h1>
+            <h1>Produtos da Loja</h1>
+            <%
+                boolean logado = false;
+                if(session != null && session.getAttribute("logado") != null)
+                    logado = (boolean)session.getAttribute("logado");
+                if(logado){
+                
+            %>
 
-        <form action="AddProduto" method="post">
-           Descrição: <input name="descricao">
-            Preço: <input name="preco" type="number" step="0.01">
-            Quantidade <input name="qtd" type="number" min="1" value="1">
+            <form action="AddProduto" method="post">
+               Descrição: <input name="descricao">
+                Preço: <input name="preco" type="number" step="0.01">
+                Quantidade <input name="qtd" type="number" min="1" value="1">
 
-            <button type="submit">OK</button>
-        </form>
+                <button type="submit">OK</button>
+            </form>
+            
+            <%
+               }
+            %>
 
-        <%
-            for(int i=0; i<Produto.getLista().size(); i++){
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        for(int i=0; i<Produto.getLista().size(); i++){
 
-                Produto p = Produto.getLista().get(i);
+                            Produto p = Produto.getLista().get(i);
+                            out.println("<tr>");
+                            out.println("<td> "+ (i+1) +" </td>");
+                            out.println("<td> "+ p.getDescricao() +" </td>");
+                            out.println("<td> "+ p.getPreco()+" </td>");
+                            out.println("<td> "+ p.getQtd() +" </td>");
+                            out.println("</tr>");
+                        }
 
-                out.println("<pre> "+ p.getDescricao() +" </pre>");
+                    %>
+                </tbody>
+            </table>
 
-            }
-
-        %>
-
-
-        <script src="js/bootstrap.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+        </div>
     </body>
 </html>

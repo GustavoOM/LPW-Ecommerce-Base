@@ -21,10 +21,14 @@ public class Login extends HttpServlet {
       String email = request.getParameter("email");
       String senha = request.getParameter("senha");
 
-      if(email.equals("adm@ifpr.edu.br") && senha.equals("admin"))
+      if(email.equals("adm@ifpr.edu.br") && senha.equals("admin")){
          request.getSession().setAttribute("logado", true);
-      else
+         response.sendRedirect("produtos.jsp");
+      }
+      else{
          response.sendRedirect("login.jsp");
+         request.getSession().setAttribute("logado", false);
+      }
    }
 
 }

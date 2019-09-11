@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 11/09/2019, 15:55:48
+    Author     : Paulista
+*/
+body{
+    background-color: antiquewhite;
+}
+
+h1#login{
+    font-size: 60pt;
+}
+
+label#login{
+    font-size: 30pt;
+}
+
+div#login{
+    margin: auto;
+    margin-top: -50px;
+    width:  50%;
+}
+
+img#login{
+    display: block;
+    margin: auto;
+    height: 200px;
+}
+ 
+img#nav{
+    width: 100px;
+    margin-top: -40px;
+}
+
+img#sobre{
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+h1#sobre{
+    font-size: 70pt;
+    text-align: center;
+    
+}
