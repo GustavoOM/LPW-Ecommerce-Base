@@ -17,6 +17,15 @@ public class Produto {
     private int qtd;
     private boolean oferta;
     private static ArrayList<Produto> lista = new ArrayList();
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     public String getDescricao(){
         return this.descricao;

@@ -14,26 +14,9 @@
       <title>Minha Loja</title>
    </head>
    <body id="login">
-      <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="index.jsp"><img id="nav" src="logoBranco.png"></a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.jsp">Ofertas</a></li>
-              <li><a href="produtos.jsp">Produtos</a></li>
-              <li><a href="sobre.jsp">Sobre</a></li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="login.jsp">Entrar</a></li>
-
-            </ul>
-
-          </div>
-
-        </nav>
+       <jsp:include page="menu.jsp">
+            <jsp:param name="item" value="login" />
+        </jsp:include>
        <img src="logo.png" id="login">
        <div class="conteiner" id="login">
             <form class="form-group" action="Login" method="post">

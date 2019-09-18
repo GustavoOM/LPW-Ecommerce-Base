@@ -17,48 +17,40 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="index.jsp"><img id="nav" src="logoBranco.png"></a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.jsp">Ofertas</a></li>
-              <li><a href="produtos.jsp">Produtos</a></li>
-              <li><a href="sobre.jsp">Sobre</a></li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="login.jsp">Entrar</a></li>
-
-            </ul>
-
-          </div>
-
-        </nav>
-        <div class="container">
-            <h1>Ofertas da Loja!</h1>
+        <jsp:include page="menu.jsp">
+            <jsp:param name="item" value="ofertas" />
+        </jsp:include>
+        <h1>Ofertas da Loja!</h1>
+            <div class="container">
+                <div class="card-deck mb-3 text-center">
+                    
+               
 
             <%
                 for(int i=0; i<Produto.getLista().size(); i++){
                     Produto p = Produto.getLista().get(i);
-                    if(i%4==0){ %>
-                        <div class="row">
-                    <%
-                    }
-                    
-
-                    out.println("<pre> "+ p.getDescricao() +" </pre>");
-                    
-                    if(i%4==0){ %>
-                        </div>
-                    <%
-                    }
-                }
-
             %>
-        </div>    
+            <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal"><% out.print(p.getDescricao()); %></h4>
+                        </div>
+                        <div class="card-body">
+                            <img src="<% out.print(p.getImg()); %>">
+                            <h1 class="card-title pricing-card-title">R$<% out.print(p.getPreco()); %> <small class="text-muted"></small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                              <li> </li>
+                              <li> </li>
+                              <li> </li>
+                              <li> </li>
+                            </ul>
+                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Carrinho</button>
+                        </div>
+                    </div>
+            <%
+                }
+            %>
+            </div>   
+         </div>
 
         <script src="js/bootstrap.min.js"></script>
     </body>

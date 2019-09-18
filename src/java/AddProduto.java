@@ -25,11 +25,13 @@ public class AddProduto extends HttpServlet {
         String descricao = request.getParameter("descricao");
         float preco = Float.parseFloat(request.getParameter("preco"));
         int qtd = Integer.parseInt(request.getParameter("qtd"));
+        String img = request.getParameter("img");
 
         Produto p = new Produto();
         p.setDescricao(descricao);
         p.setPreco(preco);
         p.setQtd(qtd);
+        p.setImg(img);
 
         Produto.getLista().add(p);
 

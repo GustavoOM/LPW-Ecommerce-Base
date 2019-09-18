@@ -14,26 +14,9 @@
         <link href="css/paulista.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <nav class="navbar navbar-inverse">
-          <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="index.jsp"><img id="nav" src="logoBranco.png"></a>
-            </div>
-            <ul class="nav navbar-nav">
-              <li><a href="index.jsp">Ofertas</a></li>
-              <li><a href="produtos.jsp">Produtos</a></li>
-              <li class="active"><a href="sobre.jsp">Sobre</a></li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="login.jsp">Entrar</a></li>
-
-            </ul>
-
-          </div>
-
-        </nav>
+        <jsp:include page="menu.jsp">
+            <jsp:param name="item" value="sobre" />
+        </jsp:include>
         <img src="logo.png" id="sobre">
         <h1 id="sobre">O melhor e mais rápido Comercio de Internet do Brasil</h1>
     </body>
